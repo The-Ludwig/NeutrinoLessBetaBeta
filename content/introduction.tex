@@ -100,7 +100,28 @@
 \begin{frame}[t]
 	\frametitle{Relevance for particle physics}
 	\begin{columns}
-		\begin{column}{.5\textwidth}
+		\begin{column}{.55\textwidth}
+			\begin{itemize}
+				\item $(A, Z) \to (A, Z+2) + 2\symup{e^-}+2\anti\nu_{\symup{e}}$ is allowed in the SM
+				      %\begin{itemize}
+				      %	\item Process can be desribed with an virtual (energeticly forbidden) intermediate state $(A, Z+1)+\symup{e^-}+\anti\nu_{\symup{e}}$
+				      %\end{itemize}
+				\item $(A, Z) \to (A, Z+2) + 2\symup{e^-}$ is forbidden in the SM
+				      \begin{itemize}
+					      \item Violates lepton number conservation\\ \alert{$\rightarrow$highly interesting}
+					            \item<2-> Solution: \emph{Majorana}-Neutrinos
+					            \begin{align*}
+						            \label{eq:}
+						            \symcal{L} = \frac{1}{2} \anti\psi\ \l(\slashed{p}-m\r)\psi\quad\text{and}\quad \psi = \gamma_0 C \psi^*
+					            \end{align*}
+							\item<3-> Can be used to gain knowledge about the absolute scale of $\nu$-masses (impossible via $\nu$-oscillation)
+									\begin{align*}
+										\Gamma_{0\nu\beta\beta} \propto \abs{m_{\beta\beta}}^2 \quad \text{with} \quad m_{\beta\beta} = \sum_{i=0}^{3}{m_i U_{ei}^2}
+									\end{align*}
+				      \end{itemize}
+			\end{itemize}
+		\end{column}
+		\begin{column}{.4\textwidth}
 			\only<1>{
 				\begin{tikzpicture}
 					\begin{feynman}
@@ -142,7 +163,7 @@
 					\end{feynman}
 				\end{tikzpicture}
 			}
-			\only<2>{
+			\only<2->{
 				\begin{tikzpicture}
 					\begin{feynman}
 						\vertex (d1) {$\symup{d}$};
@@ -181,33 +202,5 @@
 				\end{tikzpicture}
 			}
 		\end{column}
-		\begin{column}{.5\textwidth}
-
-
-		\end{column}
 	\end{columns}
-\end{frame}
-\begin{frame}[t]
-	\frametitle{title}
-	\framesubtitle{subtitle}
-
-\end{frame}
-
-
-\begin{frame}
-	\frametitle{title}
-	\framesubtitle{subtitle}
-	\input{build/const_a_zoom.pgf}
-\end{frame}
-
-\begin{frame}
-	\frametitle{title}
-	\framesubtitle{subtitle}
-	\input{build/const_a_betabeta.pgf}
-\end{frame}
-
-\begin{frame}
-	\frametitle{title}
-	\framesubtitle{subtitle}
-	\input{build/const_a_XE.pgf}
 \end{frame}
