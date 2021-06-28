@@ -1,0 +1,39 @@
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+%Physics styles
+\usepackage[
+    math-style=ISO, 
+    bold-style=ISO, 
+    sans-style=italic, 
+    nabla=upright, 
+    partial=upright
+]{unicode-math}
+
+% numbers and units
+\usepackage[
+%   locale=DE,
+    separate-uncertainty=true,  % use \pm
+    per-mode=symbol-or-fraction,
+    binary-units=true,
+    %per-mode=reciprocal,
+    %output-decimal-marker=.,
+]{siunitx}
+
+% Fix missing micro sign with TL2017
+\sisetup{
+    math-micro=\text{μ}, 
+    text-micro=μ,
+    range-phrase = --,
+    list-separator       = {, },
+    list-final-separator = { und },
+    range-units = single
+}
+
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+\setmathfont{Libertinus Math}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}

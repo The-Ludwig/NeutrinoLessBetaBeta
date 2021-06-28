@@ -1,0 +1,213 @@
+\section{What is the double beta decay?}
+\begin{frame}{Beta Decay}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			A small nuclear physics reminder:\\
+			\begin{centering}
+				\begin{tabular}{c S[table-format=3.0]}
+					Teilchen                       & {Masse/\si{\kilo\electronvolt}} \\
+					\toprule
+					$\symup{n}$                    & 939565                          \\
+					$\symup{p}$                    & 938272                          \\
+					$\symup{n-p}$                  & 1293                            \\
+					$\symup{e^-}$                  & 511                             \\
+					$\symup{\symup{\anti\nu_{e}}}$ & 0                               \\
+				\end{tabular}\\
+			\end{centering}
+			\vspace{1em}
+			The $\beta^-$--Decay is energeticly possible:
+			\begin{equation*}
+				\symup{n^0}\to\symup{p^+}+\symup{e^-}+\symup{\anti\nu_{e}}
+			\end{equation*}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{tikzpicture}
+				\begin{feynman}
+					\vertex (d1) {$\symup{d}$};
+					\vertex[right=5 of d1] (d2) {$\symup{d}$};
+					\vertex[below=2em of d1] (u1) {$\symup{u}$};
+					\vertex[right=5 of u1] (u2) {$\symup{u}$};
+					\vertex[below=2em of u1] (d3) {$\symup{d}$};
+					\vertex[right=5 of d3] (u3) {$\symup{u}$};
+					\vertex[right=2.5 of d3] (v1);
+					\vertex[below=1 of v1] (v2);
+					\vertex[above right=0.2 and 2.25 of v2] (nu) {$\symup{\anti\nu_{e}}$};
+					\vertex[below right=0.2 and 2.25 of v2] (e) {$\symup{e^-}$};
+					\diagram* { {[edges=fermion]
+							(d1) -- (d2),  (u1) -- (u2),
+							(d3) -- (v1) -- (u3), (nu) -- (v2) -- (e)},
+					(v1) -- [boson, edge label'=$\symup{W^-}$] (v2)
+					};
+					\draw [decoration={brace}, decorate] (d3.south west) -- (d1.north west) node [pos=0.5, left] {$\symup{n}$};
+					\draw [decoration={brace}, decorate] (d2.north east) --  (u3.south east) node [pos=0.5, right] {$\symup{p}$};
+				\end{feynman}
+			\end{tikzpicture}
+		\end{column}
+	\end{columns}
+	\center\onslide<2->{\alert{ Why are neutrons in nuclei stable?}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Energy levels inside the nucleus}
+	\centering
+	\vspace{-1em}
+	\begin{figure}
+		\centering
+		\only<1>{\input{build/const_a_all.pgf}}
+		\only<2>{\input{build/const_a_zoom.pgf}}
+		\only<3>{\input{build/const_a_betabeta.pgf}}
+		\caption*{Isobar energy levels for $A=76$\footnote[1]{Data from: \fullcite{Huang2021}}}%
+		\label{fig:constA}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Energy levels inside the nucleus}
+	The parabolic shape can be explained in the liquid-drop-model (Bethe-Weizsäcker-formula):
+	\begin{equation*}
+		E=a_VA- a_OA^\frac{2}{3}- a_C\frac{Z^2}{A^\frac{1}{3}}
+		-a_{\text{A}}\frac{\left(A-2Z\right)^2}{A}
+		+\begin{cases}
+			+a_{\text{P}}A^{-\frac{1}{2}} & Z,N \text{ even } (A \text{ even}) \\
+			0                             & A \text{ odd}                      \\
+			-a_{\text{P}}A^{-\frac{1}{2}} & Z,N \text{ odd } (A \text{ even})
+		\end{cases}
+	\end{equation*}
+	\begin{itemize}
+		\item<2-> For even $A$, there are actually two parabolas
+		\item<3-> Double-$\beta$-decay is very rare (more on that later) to observe it, other decays must be forbidden
+		\begin{equation*}
+			T_{\sfrac{1}{2}}^{\beta\beta}>\SI{1e18}{\year}>\SI{13.8e9}{\year}=T_{\symup{universe}}
+		\end{equation*}
+		\item<4-> Hence we expect $\beta\beta$ decay only in even-$N$ even-$Z$ nuclei\\
+		$\symup{{}^{48}_{20}Ca,
+				{}^{76}_{32}Ge,
+				{}^{78}_{36}Kr,
+				{}^{82}_{34}Se,
+				{}^{96}_{40}Zr,
+				{}^{100}_{42}Mo,
+				{}^{116}_{48}Cd,
+				{}^{128}_{52}Te,
+				{}^{130}_{52}Te,
+				{}^{124}_{54}Xe,
+				{}^{136}_{54}Xe,
+				{}^{130}_{56}Ba,
+				{}^{150}_{60}Nd,
+				{}^{238}_{92}U}$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+	\frametitle{Relevance for particle physics}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\only<1>{
+				\begin{tikzpicture}
+					\begin{feynman}
+						\vertex (d1) {$\symup{d}$};
+						\vertex[right=5 of d1] (d2) {$\symup{d}$};
+						\vertex[below=2em of d1] (u1) {$\symup{u}$};
+						\vertex[right=5 of u1] (u2) {$\symup{u}$};
+						\vertex[below=2em of u1] (d3) {$\symup{d}$};
+						\vertex[right=5 of d3] (u3) {$\symup{u}$};
+						\vertex[right=2.5 of d3] (v1);
+						\vertex[below=0.7 of v1] (v2);
+						\vertex[below right=0.15 and 2.25 of v2] (nu) {$\symup{\anti\nu_{e}}$};
+						\vertex[right=2.25 of v2] (e) {$\symup{e^-}$};
+						\diagram* { {[edges=fermion]
+								(d1) -- (d2),  (u1) -- (u2),
+								(d3) -- (v1) -- (u3), (nu) -- (v2) -- (e)},
+						(v1) -- [boson, edge label'=$\symup{W^-}$] (v2)
+						};
+						\draw [decoration={brace}, decorate] (d3.south west) -- (d1.north west) node [pos=0.5, left] {$\symup{n}$};
+						\draw [decoration={brace}, decorate] (d2.north east) --  (u3.south east) node [pos=0.5, right] {$\symup{p}$};
+
+						\vertex[below=7em of d3] (d21) {$\symup{d}$};
+						\vertex[right=5 of d21] (d22) {$\symup{d}$};
+						\vertex[below=2em of d21] (u21) {$\symup{u}$};
+						\vertex[right=5 of u21] (u22) {$\symup{u}$};
+						\vertex[below=2em of u21] (d23) {$\symup{d}$};
+						\vertex[right=5 of d23] (u23) {$\symup{u}$};
+						\vertex[right=2.5 of d21] (v21);
+						\vertex[above=0.7 of v21] (v22);
+						\vertex[above right=0.15 and 2.25 of v22] (nu2) {$\symup{\anti\nu_{e}}$};
+						\vertex[right=2.25 of v22] (e2) {$\symup{e^-}$};
+						\diagram* { {[edges=fermion]
+								(d21) -- (v21) -- (d22),  (u21) -- (u22),
+								(d23) -- (u23), (nu2) -- (v22) -- (e2)},
+						(v21) -- [boson, edge label=$\symup{W^-}$] (v22)
+						};
+						\draw [decoration={brace}, decorate] (d23.south west) -- (d21.north west) node [pos=0.5, left] {$\symup{n}$};
+						\draw [decoration={brace}, decorate] (d22.north east) --  (u23.south east) node [pos=0.5, right] {$\symup{p}$};
+					\end{feynman}
+				\end{tikzpicture}
+			}
+			\only<2>{
+				\begin{tikzpicture}
+					\begin{feynman}
+						\vertex (d1) {$\symup{d}$};
+						\vertex[right=5 of d1] (d2) {$\symup{d}$};
+						\vertex[below=2em of d1] (u1) {$\symup{u}$};
+						\vertex[right=5 of u1] (u2) {$\symup{u}$};
+						\vertex[below=2em of u1] (d3) {$\symup{d}$};
+						\vertex[right=5 of d3] (u3) {$\symup{u}$};
+						\vertex[right=2.5 of d3] (v1);
+						\vertex[below=0.7 of v1] (v2);
+						\vertex[right=2.25 of v2] (e) {$\symup{e^-}$};
+						\draw [decoration={brace}, decorate] (d3.south west) -- (d1.north west) node [pos=0.5, left] {$\symup{n}$};
+						\draw [decoration={brace}, decorate] (d2.north east) --  (u3.south east) node [pos=0.5, right] {$\symup{p}$};
+
+						\vertex[below=7em of d3] (d21) {$\symup{d}$};
+						\vertex[right=5 of d21] (d22) {$\symup{d}$};
+						\vertex[below=2em of d21] (u21) {$\symup{u}$};
+						\vertex[right=5 of u21] (u22) {$\symup{u}$};
+						\vertex[below=2em of u21] (d23) {$\symup{d}$};
+						\vertex[right=5 of d23] (u23) {$\symup{u}$};
+						\vertex[right=2.5 of d21] (v21);
+						\vertex[above=0.7 of v21] (v22);
+						\vertex[right=2.25 of v22] (e2) {$\symup{e^-}$};
+						\diagram* { {[edges=fermion]
+								(d1) -- (d2),  (u1) -- (u2),
+								(d3) -- (v1) -- (u3), (v2) -- (e),
+								(d21) -- (v21) -- (d22),  (u21) -- (u22),
+								(d23) -- (u23), (v22) -- (e2)},
+						(v22) -- [majorana, edge label'=$\symup{\nu_e}$] (v2),
+						(v21) -- [boson, edge label=$\symup{W^-}$] (v22),
+						(v1) -- [boson, edge label'=$\symup{W^-}$] (v2),
+						};
+						\draw [decoration={brace}, decorate] (d23.south west) -- (d21.north west) node [pos=0.5, left] {$\symup{n}$};
+						\draw [decoration={brace}, decorate] (d22.north east) --  (u23.south east) node [pos=0.5, right] {$\symup{p}$};
+					\end{feynman}
+				\end{tikzpicture}
+			}
+		\end{column}
+		\begin{column}{.5\textwidth}
+
+
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}[t]
+	\frametitle{title}
+	\framesubtitle{subtitle}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{title}
+	\framesubtitle{subtitle}
+	\input{build/const_a_zoom.pgf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{title}
+	\framesubtitle{subtitle}
+	\input{build/const_a_betabeta.pgf}
+\end{frame}
+
+\begin{frame}
+	\frametitle{title}
+	\framesubtitle{subtitle}
+	\input{build/const_a_XE.pgf}
+\end{frame}

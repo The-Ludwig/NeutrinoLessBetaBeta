@@ -1,0 +1,119 @@
+% useful makros
+\ExplSyntaxOn
+
+\DeclareSIUnit\century{century}
+\DeclareSIUnit\year{yr}
+
+\makeatletter % allows me to use @
+\NewDocumentCommand \showfont {} 
+{encoding: \f@encoding{},
+  family: \f@family{},
+  series: \f@series{},
+  shape: \f@shape{},
+  size: \f@size{}
+}
+\NewDocumentCommand \symbfiftextbf {m}
+{
+    \ifthenelse{\equal{\f@series}{bx}\or\equal{\f@series}{b}}{\symbf{#1}}{#1}
+}
+
+\makeatother
+
+\let\ltext=\l
+\RenewDocumentCommand \l {}
+{
+    \TextOrMath{ \ltext }{ \mleft }
+}
+\let\raccent=\r
+\RenewDocumentCommand \r {}
+{
+    \TextOrMath{ \raccent }{ \mright }
+}
+\NewDocumentCommand \dif {}
+{
+    \mathinner{\symup{d} }
+}
+
+\ExplSyntaxOff
+\NewDocumentCommand \tindex {mm}
+{
+    {#1_{\symup{#2}}}
+}
+\ExplSyntaxOn
+
+\setlength{\delimitershortfall}{-1sp}
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+\NewDocumentCommand\xDeclarePairedDelimeter{mmm}
+{%
+\NewDocumentCommand#1{som}{%
+\IfNoValueTF{##2}
+    {\IfBooleanTF{##1}{#2##3#3}{\mleft#2##3\mright#3}}
+{\mathopen{##2#2}##3\mathclose{##2#3}}%
+}%
+}
+\xDeclarePairedDelimeter{\set}{\lbrace}{\rbrace}
+
+\let\mysubsection=\subsection
+\RenewDocumentCommand\subsection{m}
+{
+    \FloatBarrier
+    \mysubsection{#1}
+}
+
+\NewDocumentCommand{\dodo} {}
+{
+   B^0\rightarrow D^0\overline{D}{}^0
+}
+\NewDocumentCommand{\dopipi} {}
+{
+   B^0\rightarrow \overline{D}{}^0\pi^+\pi^-
+}
+
+\NewDocumentCommand{\anti} {m}
+{
+    \overline{#1}
+}
+
+\AtBeginDocument{
+    \RenewDocumentCommand \Re {} {\operatorname{Re}}
+    \RenewDocumentCommand \Im {} {\operatorname{Im}}
+}
+
+\NewDocumentCommand{\mat}{m}{
+    \symbf{#1}
+}
+
+\ExplSyntaxOff
+
+
+% to use the LHCb colors, the same as in the plots
+
+\definecolor{lhcb1}{HTML}{1f77b4}
+\definecolor{lhcb2}{HTML}{ff7f0e}
+\definecolor{lhcb3}{HTML}{2ca02c}
+\definecolor{lhcb4}{HTML}{d62728}
+\definecolor{lhcb5}{HTML}{9467bd}
+\definecolor{lhcb6}{HTML}{8c564b}
+\definecolor{lhcb7}{HTML}{e377c2}
+\definecolor{lhcb8}{HTML}{7f7f7f}
+\definecolor{lhcb9}{HTML}{bcbd22}
+\definecolor{lhcb10}{HTML}{17becf}
+
+
+\NewDocumentCommand{\particle}{sO{} mm mm m O{black}}{%
+    \begin{tikzpicture}[x=0.8cm, y=0.8cm]
+        \draw[rounded corners=0.1cm, thick, color=#8] (-1, -1) -- (-1, 1) -- (1, 1) -- (1, -1) -- cycle;
+        \node[font=\tiny, anchor=north west] (#2mass) at (-1, 1) {#7};
+        \node[font=\tiny, anchor=north east, yshift=0.19cm] (#2spin) at (1, -.1) {#6};
+        \node[font=\tiny, anchor=south east, yshift=0.19cm] (#2charge) at (1, -.15) {#5};
+        \node[anchor=base west] (#2symbol) at (-.8, 0) {$\symbf{#4}$};
+        \node[align=left, anchor=base west, execute at begin node=\setlength{\baselineskip}{.8em}, font=\small] (#2name) at \IfBooleanTF{#1}{(-1, -0.9)}{(-1, -0.65)} {#3};
+    \end{tikzpicture}
+}
+
+

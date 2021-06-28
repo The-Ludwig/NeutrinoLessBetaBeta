@@ -1,0 +1,18 @@
+# LaTex support
+backend 			      : pgf
+text.usetex               : True
+pgf.texsystem             : lualatex
+font.family               : sans
+pgf.rcfonts               : False
+pgf.preamble              : \usepackage{siunitx}
+figure.figsize            : 5, 5
+
+# Custom decimal separator (based on locale)
+axes.formatter.use_locale : False
+
+# Optional style for nicer plots :)
+
+legend.fontsize           : 16
+legend.numpoints          : 1
+legend.handlelength       : 1.5
+legend.frameon            : False
