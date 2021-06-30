@@ -29,7 +29,7 @@
 \sisetup{
     math-micro=\text{μ}, 
     text-micro=μ,
-    range-phrase = --,
+    range-phrase = -,
     list-separator       = {, },
     list-final-separator = { und },
     range-units = single
@@ -91,13 +91,13 @@
   urldate=iso,%
   date=iso,%
   style=phys,%
-  articletitle=true,biblabel=brackets,%
+  articletitle=false,biblabel=brackets,%
   chaptertitle=false,pageranges=false,%
   maxnames=2%
 ]{biblatex}
 \addbibresource{references.bib}
 
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 %\renewcommand*\footnoterule{\color{lhcb3}\rule{8cm}{.2mm}}
 \usepackage{slashed}
@@ -116,3 +116,4 @@
 \usetikzlibrary{patterns}
 \usetikzlibrary{angles}
 \usepackage{tabularx}
+\usepackage{csquotes}
