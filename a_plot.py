@@ -175,7 +175,7 @@ if __name__ == "__main__":
     )
     make_plot(
         "build/const_a_XE.pgf",
-        A=124,
+        A=136,
         betabeta=True,
         betabeta_text=False,
         beta_arrow=False,
